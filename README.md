@@ -1,12 +1,3 @@
-# Introduction
-
-1. lncRNA --> best way to analyze ncRNA data is likely represented by RNAseq, that allows annotations and mapping of non-canonical transcripts and de-novo sequencing [REF]. However, microarray is a still cost-effective procedure that could allow to depict a portrait of the most characterized lncRNA species.  
-2. annotations are rapidly overdue: timely updates are needed.
-3. Affymetrix (Termofisher...) represents to date the gold standard for custom microarray analysis [N.B. other solutions are available but tools and annotations are not easy accessible if not private]
-4. microarray design and sample preparation do not address correctly the overlap between coding and non-coding samples (ex. CCND1 and ORAV1), in virtue of the sample preparation that convert _any_ strand to cDNA to labeled fragmented RNA. This means that if two transcripts share the same sense/antisense sequence and the array probe maps within the shared sequence, there's no possibility to discriminate between the original transcript source.    
-5. this is the true tricky issue, since many valid solutions could be chosen to import and normalize data. Therefore --> we have chosen a conventional R procedure to annota and normalize data BUT we customize CDF re-annotation to escape errors
-6. which annotations? Genecode. why? currently, (among) the most widely used database for gene annotations of microarray data (N.B. if not, don't worry. nobody will object this).
-
 # lncAnnot
 
 lncRNA annotation pipeline for GeneChip microarrays
@@ -58,6 +49,7 @@ where the optional parameter -n represent the _minimum_ (and default) number of 
 
 The flat2Cdf function from affxparser package for Bioconductor can now be run to create the newly annotated CDF file.
 For convenience, a modified version of the flat2Cdf function that add tags with "." instead of "," is included as source file and can be dowloaded at https://github.com/emacgene/lncAnnot
+From R environment, the following functions should be run:
 
 ```
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -86,7 +78,7 @@ library(makecdfenv)
 pkgpath("Set_the_Path_to_CDF_file")
 make.cdf.package("ClariomDHuman_Hs_GENCODET.cdf", compress = FALSE, species="Homo_sapiens", unlink=TRUE, cdf.path = pkgpath, package.path = pkgpath)
 ```
-Finally, the library can be installed and loaded into R
+Finally, the library can be installed and loaded into R (optionally, from the Unix shell with R CMD command):
 ```
 # R CMD build --force clariomdhumanhsgencodetcdf
 # R CMD INSTALL clariomdhumanhsgencodetcdf_1.64.0.tar.gz
