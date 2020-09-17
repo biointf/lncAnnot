@@ -43,7 +43,7 @@ brainArray2Flat.sh -p <FILE.probe_tab> -d <FILE.desc.txt> -o <OUT_FILENAME> [ -n
                                 Es. -n 4 --> Probeset with < 4 probe will be filtered out
 ```
 
-where the optional parameter -n represent the _minimum_ (and default) number of probes that should be considered to build the transcript expression signal (we have chosen to set 4 ad default number according to previous evidences that recognize this as the minimum set to generate a reliable signal [REF ferrari, 2007 BMC Bioinformatics]).
+where the optional parameter -n represent the _minimum_ (and default) number of probes that should be considered to build the transcript expression signal (we have chosen to set 4 ad default number according to previous evidences that recognize this as the minimum set to generate a reliable signal [REF Ferrari, 2007 BMC Bioinformatics]).
 
 ## Creation of flat files
 
@@ -75,7 +75,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install("makecdfenv")
 library(makecdfenv)
-pkgpath("Set_the_Path_to_CDF_file")
+pkgpath=("Set_the_Path_to_CDF_file")
 make.cdf.package("ClariomDHuman_Hs_GENCODET.cdf", compress = FALSE, species="Homo_sapiens", unlink=TRUE, cdf.path = pkgpath, package.path = pkgpath)
 ```
 Finally, the library can be installed and loaded into R (optionally, from the Unix shell with R CMD command):
